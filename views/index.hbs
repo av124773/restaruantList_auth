@@ -18,6 +18,7 @@
 
 <!-- restaurant list -->
 <div class="container mt-5">
+  {{#if restaurants}}
   <div class="row">
     <div class="col-md-10 col-12 mx-auto">
       <div class="row row-cols-sm-3">
@@ -41,7 +42,14 @@
           </div>
         </a>
         {{/each}}
+        
       </div>
     </div>
   </div>
+  
+  {{else}}
+  <div class="alert alert-primary" role="alert">
+    查無搜尋資料，請更換關鍵字或按<a href="/" class="alert-link">這裡</a>返回主頁面。
+  </div>
+  {{/if}}
 </div>

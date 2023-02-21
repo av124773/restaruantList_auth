@@ -43,6 +43,21 @@ app.get('/restaurants/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  Restaurant.find()
+    .lean()
+    .then(search => {
+      const searchResult = search.filter((item) => {
+        return item.name.includes(keyword) ||
+          item.name_en.toLocaleLowerCase().includes(keyword.toLocaleLowerCase()) ||
+          item.category.includes(keyword)
+      })
+      res.render('index', { restaurants: searchResult, keyword: keyword })
+    })
+    .catch(error => console.log(error))
+})
+
 app.listen(port, () => {
   console.log(`The Express is running on http://localhost:${port}`)
 })
