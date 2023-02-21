@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const exphbs = require('express-handlebars')
 
 // 僅在非正式機(production)環境使用dotenv
 if (process.env.MONGODB_URI !== 'production') {
@@ -20,8 +21,13 @@ db.once('open', () => {
   console.log('mongodb connected!')
 })
 
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: 'hbs' }))
+app.set('view engine', 'hbs')
+
+app.use(express.static('public'))
+
 app.get('/', (req, res) => {
-  res.send('hello word')
+  res.render('index')
 })
 
 app.listen(port, () => {
