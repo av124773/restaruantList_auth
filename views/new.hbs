@@ -1,0 +1,81 @@
+<h1 class="mb-1 restaurant-show-title">新增店家</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-10 mx-auto">
+
+      <form action="/restaurants" method="post">
+        <p class="mb-2">
+          <span class="text-secondary">
+            店名：
+          </span>
+          <input type="text" placeholder="店名" name="name"  size="100" required>
+        </p>
+
+        <p class="mb-2">
+          <span class="text-secondary">
+            英文店名：
+          </span>
+          <input type="text" placeholder="英文店名" name="name_en" 
+            size="100" required>
+        </p>
+
+        <p class="mb-2">
+          <span class="text-secondary">
+            類別：
+          </span>
+          <input type="text" placeholder="Ex: 日式 ..." name="category" 
+            size="100" required>
+        </p>
+
+        <p class="mb-2">
+          <span class="text-secondary">
+            地址：
+          </span>
+          <input type="text" placeholder="Ex: 台北市信義區 ..." name="location" 
+            size="100" required>
+        </p>
+
+        <p class="mb-2">
+          <span class="text-secondary">
+            地圖：
+          </span>
+          <input type="text" placeholder="google map 網址" name="google_map" value="{{restaurant.google_map}}" size="100" required>
+        </p>
+
+        <p class="mb-2">
+          <span class="text-secondary">
+            電話：
+          </span>
+          <input type="text" placeholder="Ex: 02-12345678" name="phone"  size="100" required>
+        </p>
+
+        <p class="mb-2">
+          <span class="text-secondary">
+            介紹：
+          </span>
+          <textarea id="description" placeholder="餐廳特色" name="description" rows="4"
+            cols="100" required></textarea>
+        </p>
+
+        <p class="mb-2">
+          <span class="text-secondary">
+            評分：
+          </span>
+          <input type="number" name="rating" value="4.0" min="0" max="5" step="0.1" required>
+        </p>
+
+        <p class="mb-4">
+          <span class="text-secondary">
+            圖片連結：
+          </span>
+          <input type="text" placeholder="https://..." name="image" size="100" required>
+        </p>
+
+        <button type="submit" class="btn btn-primary mb-5">
+          新增
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>

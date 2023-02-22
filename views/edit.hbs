@@ -1,0 +1,78 @@
+<h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-10 mx-auto">
+
+      <form action="/restaurants/{{restaurant._id}}/edit" method="post">
+        <p class="mb-2">
+          <span class="text-secondary">
+            店名：
+          </span>
+          <input type="text" placeholder="{{restaurant.name}}" name="name" value="{{restaurant.name}}" size="100">
+        </p>
+  
+        <p class="mb-2">
+          <span class="text-secondary">
+            英文店名：
+          </span>
+          <input type="text" placeholder="{{restaurant.name_en}}" name="name_en" value="{{restaurant.name_en}}" size="100">
+        </p>
+
+        <p class="mb-2">
+          <span class="text-secondary">
+            類別：
+          </span>
+          <input type="text" placeholder="{{restaurant.category}}" name="category" value="{{restaurant.category}}"size="100">
+        </p>
+        
+        <p class="mb-2">
+          <span class="text-secondary">
+            地址：
+          </span>
+          <input type="text" placeholder="{{restaurant.location}}" name="location" value="{{restaurant.location}}" size="100">
+        </p>
+
+        <p class="mb-2">
+          <span class="text-secondary">
+            地圖：
+          </span>
+          <input type="text" placeholder="{{restaurant.google_map}}" name="google_map"  value="{{restaurant.google_map}}" size="100">
+        </p>
+        
+        <p class="mb-2">
+          <span class="text-secondary">
+            電話：
+          </span>
+          <input type="text" placeholder="{{restaurant.phone}}" name="phone" value="{{restaurant.phone}}" size="100">
+        </p>
+        
+        <p class="mb-2">
+          <span class="text-secondary">
+            介紹：
+          </span>
+          <textarea id="description" placeholder="{{restaurant.description}}" name="description" rows="4" cols="100">{{restaurant.description}}</textarea>
+        </p>
+        
+        <p class="mb-2">
+          <span class="text-secondary">
+            評分：
+          </span>
+          <input type="number" placeholder="{{restaurant.rating}}" name="rating" value="{{restaurant.rating}}" min="0" max="5"
+            step="0.1">
+        </p>
+
+        <p class="mb-4">
+          <span class="text-secondary">
+            圖片：
+          </span>
+          <input type="text" placeholder="{{restaurant.image}}" name="image" value="{{restaurant.image}}" size="100">
+        </p>
+
+        <button type="submit" class="btn btn-primary mb-5">
+          送出修改
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>
