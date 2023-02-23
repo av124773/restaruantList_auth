@@ -49,7 +49,9 @@ npm run start
 ### 執行錯誤解決方法
 如果執行後發生以下錯誤
 ```
-Error [MongooseError]: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+Error [MongooseError]: The `uri` parameter to `openUri()` must be a string, 
+got "undefined". Make sure the first parameter to `mongoose.connect()` or 
+`mongoose.createConnection()` is a string.
 
 ```
 可能是因為沒有將資料庫連結設定至環境變數，這時請在專案資料夾中新增檔案 `.env`
