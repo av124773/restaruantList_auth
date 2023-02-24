@@ -78,14 +78,10 @@ header {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.add-restaurant {
-  position: fixed;
-  bottom: 20px;
-  right: 40px;
-}
-
-.add-button {
-  border-radius: 20px; 
+.sort-list {
+  width: 160px;
+  color: white;
+  background-color: #9b4b4b;
 }
 
 @media screen and (max-width: 992px) {
