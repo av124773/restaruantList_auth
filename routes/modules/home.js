@@ -5,8 +5,8 @@ const router = express.Router()
 const Restaurants = require('../../models/restaurant')
 
 const sortType = [
-  { _id: 'asc' },
   { _id: 'desc' },
+  { _id: 'asc' },
   { name: 'asc' }, 
   { name: 'desc' }, 
   { category: 'asc' }, 
