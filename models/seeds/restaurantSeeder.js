@@ -2,6 +2,8 @@ const Restaurant = require('../restaurant.js')
 const restaurantList = require('../../restaurant.json')
 const db = require('../../config/mongoose')
 
+console.log(process.env.FOO)
+
 db.once('open', () => {
   restaurantList.results.forEach((data) => {
     Restaurant.create({
@@ -19,4 +21,3 @@ db.once('open', () => {
   })
   console.log('done')
 })
-
