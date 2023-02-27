@@ -32,7 +32,6 @@ router.get('/', (req, res) => {
 router.get('/sort/:sortType', (req, res) => {
   const index = parseInt(req.params.sortType)
   const keyword = req.query.keyword
-  console.log(keyword)
   sort = sortType[index]
   return Restaurants.find()
     .then(() => res.redirect(`/search?keyword=${keyword}`))
