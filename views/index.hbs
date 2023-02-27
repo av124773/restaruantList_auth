@@ -20,12 +20,21 @@
               請選擇排序方式
             </button>
             <ul class="dropdown-menu">
+              {{#if keyword}}
+              <li><a class="dropdown-item" href="/search/sort/0/?keyword={{keyword}}">新 -> 舊</a></li>
+              <li><a class="dropdown-item" href="/search/sort/1?keyword={{keyword}}">舊 -> 新</a></li>
+              <li><a class="dropdown-item" href="/search/sort/2?keyword={{keyword}}">A -> Z</a></li>
+              <li><a class="dropdown-item" href="/search/sort/3?keyword={{keyword}}">Z -> A</a></li>
+              <li><a class="dropdown-item" href="/search/sort/4?keyword={{keyword}}">類別</a></li>
+              <li><a class="dropdown-item" href="/search/sort/5?keyword={{keyword}}">地區</a></li>
+              {{else}}
               <li><a class="dropdown-item" href="/sort/0">新 -> 舊</a></li>
               <li><a class="dropdown-item" href="/sort/1">舊 -> 新</a></li>
               <li><a class="dropdown-item" href="/sort/2">A -> Z</a></li>
               <li><a class="dropdown-item" href="/sort/3">Z -> A</a></li>
               <li><a class="dropdown-item" href="/sort/4">類別</a></li>
               <li><a class="dropdown-item" href="/sort/5">地區</a></li>
+              {{/if}}
             </ul>
           </div>
         </div>
