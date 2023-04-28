@@ -45,6 +45,10 @@ header {
   color: white;
 }
 
+.bnt-logout, .bnt-login {
+  background-color: #4592af;
+}
+
 .form-control:focus {
   box-shadow: none;
   border-color: #ced4da;
