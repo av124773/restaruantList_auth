@@ -1,6 +1,7 @@
 const passport = require('passport')
 const bcrypt = require('bcryptjs')
 const LocalStrategy = require('passport-local').Strategy
+const FacebookStrategy = require('passport-facebook').Strategy
 const User = require('../models/users')
 module.exports = app => {
   // 初始化
@@ -21,6 +22,14 @@ module.exports = app => {
         })
       })
       .catch(error => done(error, false))
+  }))
+  passport.use(new FacebookStrategy({
+    clientID: 'myClientID',
+    clientSecret: 'myClientSecret',
+    callbackURL: 'http://localhost:3001/auth/facebook/callback',
+    profileFields: ['email', 'displayName']
+  }, (accessToken, refreshToken, profile, done) => {
+    console.log(profile)
   }))
   // 設定序列化和反序列化
   passport.serializeUser((user, done) => {
