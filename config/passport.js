@@ -24,12 +24,28 @@ module.exports = app => {
       .catch(error => done(error, false))
   }))
   passport.use(new FacebookStrategy({
-    clientID: 'myClientID',
-    clientSecret: 'myClientSecret',
-    callbackURL: 'http://localhost:3001/auth/facebook/callback',
+    clientID: process.env.FACEBOOK_ID,
+    clientSecret: process.env.FACEBOOK_SECRET,
+    callbackURL: process.env.FACEBOOK_CALLBACK,
     profileFields: ['email', 'displayName']
   }, (accessToken, refreshToken, profile, done) => {
     console.log(profile)
+    const { name, email } = profile._json
+    User.findOne({ email })
+      .then(user => {
+        if (user) return done(null, user)
+        const randomPassword = Math.random().toString(36).slice(-8)
+        bcrypt
+          .genSalt(10)
+          .then(salt => bcrypt.hash(randomPassword, salt))
+          .then(hash => User.create({
+            name,
+            email,
+            password: hash
+          }))
+          .then(user => done(null, user))
+          .catch(error => done(error, false))
+      })
   }))
   // 設定序列化和反序列化
   passport.serializeUser((user, done) => {
