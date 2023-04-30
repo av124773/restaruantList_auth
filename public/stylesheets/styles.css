@@ -88,6 +88,10 @@ header {
   background-color: #9b4b4b;
 }
 
+.required-mark {
+  color: red;
+}
+
 @media screen and (max-width: 992px) {
 
   .card img {

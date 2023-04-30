@@ -23,8 +23,8 @@ router.get('/register', (req, res) => {
 router.post('/register', (req, res) => {
   const { name, email, password, confirmPassword } = req.body
   const errors = []
-  if (!name || !email || !password || !confirmPassword) {
-    errors.push({ message: '所有欄位都是必填!'})
+  if (!email || !password || !confirmPassword) {
+    errors.push({ message: '必填欄位未填寫!'})
   }
   if (password !== confirmPassword) {
     errors.push({ message: '密碼與驗證密碼不符合!' })
@@ -53,11 +53,11 @@ router.post('/register', (req, res) => {
       return bcrypt
         .genSalt(10)
         .then(salt => bcrypt.hash(password, salt))
-        .then(hash => User.create({
+        .then(hash => {User.create({
           name,
           email,
           password: hash
-        }))
+        })})
         .then(() => res.redirect('/'))
         .catch(error => console.log(error))
     })
